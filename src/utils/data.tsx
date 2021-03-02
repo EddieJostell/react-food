@@ -24,7 +24,7 @@ export const FoodList: IFood[] = [
         veggo: true,
         link: "http://www.ica.se/recept/farska-varrullar-med-grillad-tofu-och-ingefarsdipp-720099/"
     },
-     {
+    {
         dish: "Haloumisallad",
         veggo: true,
         link: "http://mittkok.expressen.se/recept/halloumisallad/"
@@ -73,6 +73,7 @@ export const FoodList: IFood[] = [
         dish: "Rödbetsrisotto med hyvlad halloumi och valnötter",
         veggo: true,
         link: "http://www.ica.se/recept/rodbetsrisotto-med-hyvlad-halloumi-och-valnotter-720045/"
+    },
     {
         dish: "Halstrad tonfisk med avokadohummus",
         veggo: false, 
