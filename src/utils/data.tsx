@@ -1,3 +1,24 @@
+export interface ITakeAway {
+  company: string;
+  link: string;
+}
+
+export const TakeAway: ITakeAway[] = [
+  {
+    company: 'Foodora',
+    link:
+      'https://www.foodora.se/en/?r=1&gclid=EAIaIQobChMI2Kegs-CW7wIVB7wYCh0RiAiLEAAYASAAEgJbAvD_BwE',
+  },
+  {
+    company: 'Uber Eats',
+    link: 'https://www.ubereats.com/se-en',
+  },
+  {
+    company: 'Wolt',
+    link: 'https://www.wolt.se',
+  },
+];
+
 export interface IRecipe {
   dish: string;
   veggo: boolean;

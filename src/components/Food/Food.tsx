@@ -1,11 +1,13 @@
 import React from 'react';
 import { IRecipe } from '../../utils/data';
-interface IFoodProps {
+export interface IFoodProps {
   food: any;
 }
 
 const Food = (props: IFoodProps) => {
   const { food } = props;
+
+  console.log(food);
 
   return (
     <div className='flex justify-center items-center h-28 w-full bg-red-900 my-2.5 rounded-lg'>
@@ -14,9 +16,9 @@ const Food = (props: IFoodProps) => {
           className='hover:underline'
           target='_blank'
           rel='noreferrer noopener'
-          href={food.dish.link}
+          href={food.allRecipes.link}
         >
-          {food.dish.dish}
+          {food.allRecipes.dish}
         </a>
       </h1>
     </div>
