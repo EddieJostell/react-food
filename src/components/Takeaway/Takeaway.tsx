@@ -1,24 +1,24 @@
 import React from 'react';
 import { ITakeAway } from '../../utils/data';
-
 interface ITakeAwayProps {
-  company: any;
+  company: ITakeAway;
 }
 
 const Takeaway = (props: ITakeAwayProps) => {
   const { company } = props;
 
+  console.log(company);
+
   return (
     <div className='flex justify-center items-center h-28 w-full bg-pink-500 my-2.5 rounded-lg'>
-      {/*  <h1 className='font-semibold text-white text-4xl'>Takeaway här!</h1> */}
-      <h1 className='font-semibold text-white text-4xl'>
+      <h1 className='font-semibold text-white sm:text-4xl text-2xl'>
         <a
           className='hover:underline'
           target='_blank'
           rel='noreferrer noopener'
-          href={company.companies.link}
+          href={company.link}
         >
-          {company.companies.company}
+          {company.name}
         </a>
       </h1>
     </div>

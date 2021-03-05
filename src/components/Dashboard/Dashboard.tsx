@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface IDashboardProps {
   recipe: () => void;
@@ -12,14 +12,18 @@ const Dashboard = (props: IDashboardProps) => {
 
   return (
     <div className='flex justify-center items-center h-28 w-full bg-green-900 my-2.5 rounded-lg'>
-      <div className='flex flex-row justify-between items-center w-1/2 mx-auto'>
+      <div
+        className={`flex flex-col sm:flex-row sm:px-2  ${
+          !fastfood ? 'justify-between' : 'justify-around'
+        } items-center w-full md:w-1/2 `}
+      >
         <button
           onClick={recipe}
           className='inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-black uppercase transition bg-gray-100 rounded shadow ripple hover:shadow-lg hover:bg-gray-400 hover:text-gray-100 focus:outline-none'
         >
           Lös Uppgiften
         </button>
-        {!fastfood ? (
+        {!fastfood && (
           <label className='flex flex-row items-center'>
             <input
               id='veggo'
@@ -30,11 +34,9 @@ const Dashboard = (props: IDashboardProps) => {
               onChange={type}
             />
             <span className='font-semibold text-white text-2xl cursor-pointer focus:border-red-700'>
-              Kött är mord!
+              Vegetarian
             </span>
           </label>
-        ) : (
-          ''
         )}
         <label className='flex flex-row'>
           <input

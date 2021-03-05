@@ -1,29 +1,70 @@
 export interface ITakeAway {
-  company: string;
+  name: string;
   link: string;
 }
-
-export const TakeAway: ITakeAway[] = [
-  {
-    company: 'Foodora',
-    link:
-      'https://www.foodora.se/en/?r=1&gclid=EAIaIQobChMI2Kegs-CW7wIVB7wYCh0RiAiLEAAYASAAEgJbAvD_BwE',
-  },
-  {
-    company: 'Uber Eats',
-    link: 'https://www.ubereats.com/se-en',
-  },
-  {
-    company: 'Wolt',
-    link: 'https://www.wolt.se',
-  },
-];
-
 export interface IRecipe {
   dish: string;
   veggo: boolean;
   link: string;
 }
+
+const oneCompany = () => {
+  return TakeAway[Math.floor(Math.random() * TakeAway.length)];
+};
+
+export const anotherCompany = (companyName: string) => {
+  let newCompany = oneCompany();
+
+  if (companyName === '') {
+    return newCompany;
+  }
+  while (newCompany.name === companyName) {
+    newCompany = oneCompany();
+  }
+
+  return newCompany;
+};
+
+const oneRecipe = (vegetarian: boolean) => {
+  if (vegetarian) {
+    let onlyVeggo = FoodList.filter((filterFood: IRecipe) => {
+      return filterFood.veggo;
+    });
+    return onlyVeggo[Math.floor(Math.random() * onlyVeggo.length)];
+  } else {
+    return FoodList[Math.floor(Math.random() * FoodList.length)];
+  }
+};
+
+export const anotherRecipe = (recipeName: string, vegetarian: boolean) => {
+  let newRecipe = oneRecipe(vegetarian);
+
+  if (recipeName === '') {
+    return newRecipe;
+  }
+
+  while (newRecipe.dish === recipeName) {
+    newRecipe = oneRecipe(vegetarian);
+  }
+
+  return newRecipe;
+};
+
+export const TakeAway: ITakeAway[] = [
+  {
+    name: 'Foodora',
+    link:
+      'https://www.foodora.se/en/?r=1&gclid=EAIaIQobChMI2Kegs-CW7wIVB7wYCh0RiAiLEAAYASAAEgJbAvD_BwE',
+  },
+  {
+    name: 'Uber Eats',
+    link: 'https://www.ubereats.com/se-en',
+  },
+  {
+    name: 'Wolt',
+    link: 'https://www.wolt.se',
+  },
+];
 
 // Replace with API perhaps?
 
