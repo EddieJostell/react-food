@@ -57,6 +57,10 @@ function App() {
     });
   };
 
+  const toggleModal = (): void => {
+    alert('HOW TO?');
+  };
+
   return (
     <div className='min-h-screen text-center bg-black px-1.5'>
       <Container>
@@ -67,6 +71,7 @@ function App() {
           <Takeaway company={appState.company} />
         )}
         <Dashboard
+          howto={toggleModal}
           fastfood={appState.takeOut}
           recipe={showRecipe}
           type={handleFoodType}
