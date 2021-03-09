@@ -71,7 +71,7 @@ const Modal = (props: IModalProps) => {
                   className='text-lg leading-6 font-medium text-gray-900'
                   id='modal-headline'
                 >
-                  How to navigate the application
+                  Användarguide
                 </h3>
                 <div className='mt-2'>
                   {/*   <p className='text-sm text-gray-500'>
