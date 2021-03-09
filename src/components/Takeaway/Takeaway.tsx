@@ -7,8 +7,6 @@ interface ITakeAwayProps {
 const Takeaway = (props: ITakeAwayProps) => {
   const { company } = props;
 
-  console.log(company);
-
   return (
     <div className='flex justify-center items-center h-28 w-full bg-pink-500 my-2.5 rounded-lg'>
       <h1 className='font-semibold text-white sm:text-4xl text-2xl'>

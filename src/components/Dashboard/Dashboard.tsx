@@ -23,13 +23,13 @@ const Dashboard = (props: IDashboardProps) => {
             onClick={howto}
             className='bg-gray-900 hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-gray-900 hover:border-white rounded mr-2'
           >
-            How to?
+            Hur gör man?
           </button>
           <button
             onClick={recipe}
             className='bg-gray-900 hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-gray-900 hover:border-white rounded ml-2'
           >
-            Shuffle
+            Shuffla
           </button>
         </div>
         <div className='flex flex-row justify-center mt-3 sm:mt-0 w-full sm:w-auto'>
@@ -61,7 +61,7 @@ const Dashboard = (props: IDashboardProps) => {
                 onChange={takeout}
               />
               <span className='font-semibold text-white text-xl md:text-2xl cursor-pointer'>
-                Lazy?
+                För lat?
               </span>
             </label>
           </div>

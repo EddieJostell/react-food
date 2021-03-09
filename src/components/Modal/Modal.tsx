@@ -59,9 +59,9 @@ const Modal = (props: IModalProps) => {
                   aria-hidden='true'
                 >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
                     d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
                   />
                 </svg>
@@ -81,17 +81,16 @@ const Modal = (props: IModalProps) => {
                   </p> */}
                   <ul className='list-none'>
                     <li>
-                      <span className='font-bold'>Shuffle:</span> Randomize a
-                      random recipe link that you can follow to the actual
-                      recipe.
+                      <span className='font-bold'>Shuffla:</span> Klicka på
+                      knappen för att få tips på recept att laga.
                     </li>
                     <li>
-                      <span className='font-bold'>Vegetarian:</span> Display
-                      only vegetarian recipes.
+                      <span className='font-bold'>Vegetarian?:</span> Visar bara
+                      vegetariska recept.
                     </li>
                     <li>
-                      <span className='font-bold'>Lazy:</span> I think you know
-                      ;){' '}
+                      <span className='font-bold'>För lat?:</span> Oh I think
+                      you know! ;)
                     </li>
                   </ul>
                 </div>
