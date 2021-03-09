@@ -11,12 +11,14 @@ import {
   ITakeAway,
 } from '../src/utils/data';
 import Takeaway from './components/Takeaway/Takeaway';
+import Modal from './components/Modal/Modal';
 
 interface IAppState {
   recipe: IRecipe;
   company: ITakeAway;
   veggoState: boolean;
   takeOut: boolean;
+  toggleModal: boolean;
 }
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
     company: anotherCompany(''),
     veggoState: false,
     takeOut: false,
+    toggleModal: false,
   });
 
   const showRecipe = (): void => {
@@ -57,13 +60,14 @@ function App() {
     });
   };
 
-  const toggleModal = (): void => {
-    alert('HOW TO?');
+  const handleShowModal = (): void => {
+    setAppState({ ...appState, toggleModal: !appState.toggleModal });
   };
 
   return (
     <div className='min-h-screen text-center bg-black px-1.5'>
       <Container>
+        {appState.toggleModal && <Modal toggle={handleShowModal} />}
         <Banner />
         {!appState.takeOut ? (
           <Food food={appState.recipe} />
@@ -71,7 +75,7 @@ function App() {
           <Takeaway company={appState.company} />
         )}
         <Dashboard
-          howto={toggleModal}
+          howto={handleShowModal}
           fastfood={appState.takeOut}
           recipe={showRecipe}
           type={handleFoodType}
