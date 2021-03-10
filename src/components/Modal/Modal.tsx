@@ -81,7 +81,7 @@ const Modal = (props: IModalProps) => {
                   </p> */}
                   <ul className='list-none'>
                     <li>
-                      <span className='font-bold'>Shuffla:</span> Klicka på
+                      <span className='font-bold'>Blanda:</span> Klicka på
                       knappen för att få tips på recept att laga.
                     </li>
                     <li>

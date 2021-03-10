@@ -65,7 +65,10 @@ function App() {
   };
 
   return (
-    <div className='min-h-screen text-center bg-black px-1.5'>
+    <div
+      className='min-h-screen text-center bg-black px-1.5'
+      data-testid='application'
+    >
       <Container>
         {appState.toggleModal && <Modal toggle={handleShowModal} />}
         <Banner />

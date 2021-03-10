@@ -12,7 +12,10 @@ const Dashboard = (props: IDashboardProps) => {
   const { recipe, type, takeout, fastfood, howto } = props;
 
   return (
-    <div className='flex justify-center items-center h-28 w-full bg-green-900 my-2.5 rounded-lg'>
+    <div
+      data-testid='dashboard'
+      className='flex justify-center items-center h-28 w-full bg-green-900 my-2.5 rounded-lg'
+    >
       <div
         className={` flex w-full flex-col sm:flex-row justify-between items-center px-2 ${
           !fastfood ? 'sm:justify-around' : 'sm:justify-center'
@@ -29,7 +32,7 @@ const Dashboard = (props: IDashboardProps) => {
             onClick={recipe}
             className='bg-gray-900 hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-gray-900 hover:border-white rounded ml-2'
           >
-            Shuffla
+            Blanda
           </button>
         </div>
         <div className='flex flex-row justify-center mt-3 sm:mt-0 w-full sm:w-auto'>
@@ -37,6 +40,7 @@ const Dashboard = (props: IDashboardProps) => {
             <div>
               <label className='flex flex-row items-center mr-2'>
                 <input
+                  checked={false}
                   id='veggo'
                   value='veggo'
                   name='veggo'

@@ -2,7 +2,10 @@ import React from 'react';
 
 function Container(props: { children: React.ReactNode }) {
   return (
-    <div className='md:max-w-screen-lg mx-auto pt-24 sm:pt-0 lg:pt-56'>
+    <div
+      data-testid='container'
+      className='md:max-w-screen-lg mx-auto pt-24 sm:pt-0 lg:pt-56'
+    >
       {props.children}
     </div>
   );

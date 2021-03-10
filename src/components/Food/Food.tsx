@@ -8,7 +8,10 @@ const Food = (props: IFoodProps) => {
   const { food } = props;
 
   return (
-    <div className='flex justify-center items-center h-28 w-full bg-red-900 my-2.5 rounded-lg'>
+    <div
+      className='flex justify-center items-center h-28 w-full bg-red-900 my-2.5 rounded-lg'
+      data-testid='food'
+    >
       <h1 className='font-semibold text-white sm:text-3xl md:text-4xl text-xl'>
         <a
           className='hover:underline'
