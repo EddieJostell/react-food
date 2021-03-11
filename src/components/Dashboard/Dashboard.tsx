@@ -40,7 +40,6 @@ const Dashboard = (props: IDashboardProps) => {
             <div>
               <label className='flex flex-row items-center mr-2'>
                 <input
-                  checked={false}
                   id='veggo'
                   value='veggo'
                   name='veggo'

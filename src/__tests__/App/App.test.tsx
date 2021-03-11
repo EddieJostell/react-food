@@ -1,14 +1,20 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
 import App from '../../App';
 import Banner from '../../components/Banner/Banner';
 import Food from '../../components/Food/Food';
 import Container from '../../components/Container/Container';
+
+afterEach(() => {
+  cleanup();
+});
+
 const mockFood = { dish: 'Köttbullar', veggo: false, link: 'https' };
 const containerChildren = '<div>HEJ</div>';
 
 test('renders App component', () => {
   render(<App />);
+  screen.debug();
   const AppElement = screen.getByTestId('application');
   expect(AppElement).not.toBe(undefined);
 });

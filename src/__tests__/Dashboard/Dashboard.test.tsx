@@ -1,17 +1,26 @@
-import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import React, { useState } from 'react';
+import { fireEvent, render, screen, cleanup } from '@testing-library/react';
 import Dashboard from '../../components/Dashboard/Dashboard';
+import App from '../../../src/App';
+import Modal from '../../components/Modal/Modal';
+import { resolveTypeReferenceDirective } from 'typescript';
+import Container from '../../components/Container/Container';
+
 const howto = () => {};
 const recipe = () => {};
 const type = () => {};
 const takeout = () => {};
-const fastfood = false;
+let fastfood = false;
 
-test('renders Dashboard component', () => {
+afterEach(() => {
+  cleanup();
+});
+
+test('Renders Dashboard component', () => {
   render(
     <Dashboard
       howto={howto}
-      fastfood={fastfood}
+      fastfood={false}
       recipe={recipe}
       type={type}
       takeout={takeout}
@@ -21,12 +30,12 @@ test('renders Dashboard component', () => {
   expect(DashboardElement).not.toBe(undefined);
 });
 
-test('dashboard has a "how to" button', () => {
-  const howToMocked = jest.fn();
+test('Dashboard has a "How to" button', () => {
+  const onClick = jest.fn();
   render(
     <Dashboard
-      howto={howToMocked}
-      fastfood={fastfood}
+      howto={onClick}
+      fastfood={false}
       recipe={recipe}
       type={type}
       takeout={takeout}
@@ -35,16 +44,16 @@ test('dashboard has a "how to" button', () => {
   const howtoBtn = screen.getByRole('button', { name: /hur gör man?/i });
   expect(howtoBtn).not.toBe(undefined);
   fireEvent.click(howtoBtn);
-  expect(howToMocked).toHaveBeenCalledTimes(1);
+  expect(onClick).toHaveBeenCalled();
 });
 
-test('dashboard has a "Shuffle" button', () => {
-  const shuffleMocked = jest.fn();
+test('Dashboard has a "Shuffle" button', () => {
+  const onClick = jest.fn();
   render(
     <Dashboard
       howto={howto}
-      recipe={shuffleMocked}
-      fastfood={fastfood}
+      recipe={onClick}
+      fastfood={false}
       type={type}
       takeout={takeout}
     />
@@ -52,40 +61,76 @@ test('dashboard has a "Shuffle" button', () => {
   const shuffleBtn = screen.getByRole('button', { name: /blanda/i });
   expect(shuffleBtn).not.toBe(undefined);
   fireEvent.click(shuffleBtn);
-  expect(shuffleMocked).toHaveBeenCalledTimes(1);
+  expect(onClick).toHaveBeenCalled();
 });
 
-test('dashboard has a "Vegetarian" checkbox', () => {
-  const veggoMocked = jest.fn();
+test('Dashboard has a "Vegetarian" checkbox', () => {
+  const onClick = jest.fn();
   render(
     <Dashboard
       howto={howto}
       recipe={recipe}
-      fastfood={fastfood}
-      type={veggoMocked}
+      fastfood={false}
+      type={onClick}
       takeout={takeout}
     />
   );
   const veggoCheckbox = screen.getByRole('checkbox', { name: /vegetarian?/i });
   expect(veggoCheckbox).not.toBe(undefined);
   fireEvent.click(veggoCheckbox);
-  expect(veggoMocked).toHaveBeenCalledTimes(1);
+  expect(onClick).toHaveBeenCalled();
 });
 
-test.only('dashboard has a "Vegetarian" checkbox', () => {
-  const lazyMocked = jest.fn();
+test('Dashboard has a "Lazy" checkbox', () => {
+  const onClick = jest.fn();
   render(
     <Dashboard
       howto={howto}
       recipe={recipe}
-      fastfood={fastfood}
+      fastfood={false}
       type={type}
-      takeout={lazyMocked}
+      takeout={onClick}
     />
   );
-  screen.debug();
-  const lazyCheckbox = screen.getByRole('checkbox', { name: /vegetarian?/i });
+  const lazyCheckbox = screen.getByRole('checkbox', { name: /för lat?/i });
   expect(lazyCheckbox).not.toBe(undefined);
   fireEvent.click(lazyCheckbox);
-  expect(lazyMocked).toHaveBeenCalledTimes(1);
+  expect(onClick).toHaveBeenCalled();
+});
+
+test('Lazy button is pressed - hide Vegetarian button', () => {
+  const onClick = jest.fn();
+  const { rerender } = render(
+    <Dashboard
+      howto={howto}
+      recipe={recipe}
+      fastfood={false}
+      type={type}
+      takeout={onClick}
+    />
+  );
+  const takeout = screen.getByRole('checkbox', { name: /för lat?/i });
+  const veggo = screen.getByRole('checkbox', { name: /vegetarian?/i });
+  expect(takeout).toBeInTheDocument();
+  expect(veggo).toBeInTheDocument();
+  fireEvent.click(takeout);
+  expect(onClick).toHaveBeenCalled();
+  rerender(
+    <Dashboard
+      howto={howto}
+      recipe={recipe}
+      fastfood={true}
+      type={type}
+      takeout={onClick}
+    />
+  );
+  expect(veggo).not.toBeInTheDocument();
+});
+
+test('How to button is pressed - Modal is shown', () => {
+  render(<App />);
+  let btn = screen.getByText('Hur gör man?');
+  fireEvent.click(btn);
+  let modal = screen.getByTestId('modal');
+  expect(modal).not.toBe(undefined);
 });

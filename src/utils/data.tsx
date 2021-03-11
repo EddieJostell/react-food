@@ -206,4 +206,68 @@ export const FoodList: IRecipe[] = [
     veggo: false,
     link: 'http://mittkok.expressen.se/recept/baconlindad-kottfarslimpa/',
   },
+  {
+    dish: 'Thai kyckling med paprika',
+    veggo: false,
+    link: 'https://www.ica.se/recept/thai-kyckling-med-paprika-727563/',
+  },
+  {
+    dish: 'Fisk-ish pinnar med currysmetana',
+    veggo: true,
+    link: 'https://www.ica.se/recept/fisk-ish-pinnar-med-currysmetana-727567/',
+  },
+  {
+    dish: 'Rostade rotfrukter med salsa verde och vita bönor',
+    veggo: true,
+    link:
+      'https://www.ica.se/recept/rostade-rotfrukter-med-salsa-verde-och-vita-bonor-727004/',
+  },
+  {
+    dish: 'Västerbottensostpaj grundrecept',
+    veggo: true,
+    link: 'https://www.coop.se/recept/vasterbottensostpaj-grundrecept',
+  },
+  {
+    dish: 'Tofubowl',
+    veggo: true,
+    link: 'https://www.coop.se/recept/tofubowl',
+  },
+  {
+    dish: 'Bowl med couscous och stekt ägg',
+    veggo: true,
+    link: 'https://www.coop.se/recept/bowl-med-couscous-och-stekt-agg',
+  },
+  {
+    dish: 'Potatissallad med basilika och pinjenötter',
+    veggo: true,
+    link:
+      'https://www.coop.se/recept/potatissallad-med-basilika-och-pinjenotter',
+  },
+  {
+    dish: 'Piroger med pesto',
+    veggo: true,
+    link: 'https://www.coop.se/recept/piroger-med-pesto',
+  },
+  {
+    dish: 'Nudelsallad med japansk omelett och kokosdressing',
+    veggo: true,
+    link:
+      'https://www.coop.se/recept/nudelsallad-med-japansk-omelett-och-kokosdressing',
+  },
+  {
+    dish: 'Grönkålssoppa med potatis',
+    veggo: true,
+    link: 'https://www.coop.se/recept/gronkalssoppa-med-potatis',
+  },
+  {
+    dish: 'Tomatsoppa med tunnbrödsrulle med hummus och paprika',
+    veggo: false,
+    link:
+      'https://www.ica.se/recept/tomatsoppa-med-tunnbrodsrulle-med-hummus-och-paprika-726631/',
+  },
+  {
+    dish: 'Wok med kyckling och pak choi',
+    veggo: false,
+    link: 'https://www.ica.se/recept/wok-med-kyckling-och-pak-choi-727653/',
+  },
 ];
