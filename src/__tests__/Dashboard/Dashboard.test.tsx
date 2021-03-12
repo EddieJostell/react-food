@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { fireEvent, render, screen, cleanup } from '@testing-library/react';
 import Dashboard from '../../components/Dashboard/Dashboard';
 import App from '../../../src/App';
-import Modal from '../../components/Modal/Modal';
-import { resolveTypeReferenceDirective } from 'typescript';
-import Container from '../../components/Container/Container';
 
 const howto = () => {};
 const recipe = () => {};
@@ -127,10 +124,18 @@ test('Lazy button is pressed - hide Vegetarian button', () => {
   expect(veggo).not.toBeInTheDocument();
 });
 
-test('How to button is pressed - Modal is shown', () => {
+test('Howto button is pressed - Modal component is shown', () => {
   render(<App />);
   let btn = screen.getByText('Hur gör man?');
   fireEvent.click(btn);
   let modal = screen.getByTestId('modal');
   expect(modal).not.toBe(undefined);
+});
+
+test('Lazy button is pressed - takeaway component is shown', () => {
+  render(<App />);
+  let btn = screen.getByText('För lat?');
+  fireEvent.click(btn);
+  let takeaway = screen.getByTestId('takeaway');
+  expect(takeaway).not.toBe(undefined);
 });

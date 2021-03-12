@@ -34,16 +34,14 @@ const Modal = (props: IModalProps) => {
         >
           &#8203;
         </span>
-        {/*    <!--
-              Modal panel, show/hide based on modal state.
-        
+        {/*   Modal panel, show/hide based on modal state.
               Entering: "ease-out duration-300"
                 From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 To: "opacity-100 translate-y-0 sm:scale-100"
               Leaving: "ease-in duration-200"
                 From: "opacity-100 translate-y-0 sm:scale-100"
                 To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            --> */}
+             */}
         <div
           className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'
           role='dialog'
@@ -78,11 +76,6 @@ const Modal = (props: IModalProps) => {
                   Användarguide
                 </h3>
                 <div className='mt-2'>
-                  {/*   <p className='text-sm text-gray-500'>
-                    Are you sure you want to deactivate your account? All of
-                    your data will be permanently removed. This action cannot be
-                    undone.
-                  </p> */}
                   <ul className='list-none'>
                     <li>
                       <span className='font-bold'>Blanda:</span> Klicka på
@@ -109,12 +102,6 @@ const Modal = (props: IModalProps) => {
             >
               Ok I got it!
             </button>
-            {/*  <button
-              type='button'
-              className='mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm'
-            >
-              Cancel
-            </button> */}
           </div>
         </div>
       </div>
